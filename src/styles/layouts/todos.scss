@@ -28,7 +28,7 @@
   }
 
   &-list {
-    height: 700px;
+    height: 750px;
     overflow: auto;
 
     &::-webkit-scrollbar {
@@ -67,8 +67,8 @@
         &-check {
           transition: all 0.2s;
           padding: 2px;
-          border: 1px solid $current-pink-color;
-          border-radius: 4px;
+          border: 2px solid $current-pink-color;
+          border-radius: 50%;
 
           svg {
             opacity: 0;

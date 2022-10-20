@@ -1,0 +1,58 @@
+@use "../abstracts/index.scss" as *;
+
+.news {
+  &-list {
+    &-item {
+      background-color: $dropdown-color;
+      border-radius: 15px;
+
+      &-image {
+        height: 150px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px;
+        cursor: pointer;
+
+        &::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(35deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, 0.1));
+          transition: all .2s;
+          z-index: 1;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: inherit;
+          transition: all 0.2s;
+          object-fit: cover;
+        }
+
+        .absolute {
+          position: absolute;
+          bottom: 10px;
+          left: 10px;
+          background-color: rgb(136, 12, 43);
+          border-radius: 10px;
+          font-size: 0.9rem;
+          z-index: 2;
+        }
+
+        &:hover {
+          img {
+            transform: scale(1.1);
+          }
+        }
+      }
+
+      p {
+        font: {
+          size: small;
+          weight: bold;
+        }
+      }
+    }
+  }
+}

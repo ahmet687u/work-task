@@ -23,10 +23,6 @@ export default function Todo() {
 
   return (
     <section className='todos'>
-      <header className='mb-4'>
-        <h1>TO-DO LIST</h1>
-      </header>
-
       <Form />
       <List />
     </section>

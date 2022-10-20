@@ -1,0 +1,21 @@
+@use "../abstracts/index.scss" as *;
+
+.wheather {
+  background-color: $dropdown-color;
+  border-radius: 9px;
+
+  &-header {
+    p {
+      font: {
+        size: small;
+        weight: bold;
+      }
+    }
+  }
+
+  &-tempeture {
+    .big {
+      font-size: 2.7rem;
+    }
+  }
+}

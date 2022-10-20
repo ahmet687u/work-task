@@ -15,10 +15,10 @@ const todoSlice = createSlice({
       state[payload?.name] = payload?.value
     },
     removeTodoByName: (state, { payload }) => {
-      state.data = state.data?.filter(item => item.id !== payload)
+      state.data = state.data?.filter(item => item.subject !== payload)
     },
     editTodoByName: (state, { payload }) => {
-      state.data = state.data?.map(item => item.id === payload.id ? ({ ...item, ...payload.data }) : item)
+      state.data = state.data?.map(item => item.subject === payload.subject ? ({ ...item, ...payload.data }) : item)
     },
     changeCheckStatus: (state, { payload }) => {
       state.data = state.data?.map(item => item.subject === payload.subject ? ({ ...item, isCompleted: payload.isCompleted }) : item)
@@ -33,7 +33,7 @@ const todoSlice = createSlice({
         /**
          * Verilerin güncelleme ve silmesini yaparken ihtiyaç duyulacağından her veriye benzersiz bir id değeri ekliyoruz
          */
-        state.data = payload?.map((item, id) => ({ ...item, id }))
+        state.data = payload
       })
   }
 });

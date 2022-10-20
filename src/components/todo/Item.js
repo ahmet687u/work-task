@@ -5,7 +5,7 @@ import { editTodoByName, removeTodoByName, changeCheckStatus } from '../../redux
 import { OrangeButton, RedButton } from '../Button'
 import f1rf1r from 'f1rf1r'
 
-export default function Item({ subject, isCompleted, endDate, id }) {
+export default function Item({ subject, isCompleted, endDate }) {
   const dateComparison = date => new Date() > new Date(date)
   const [remove, edit, setCheck] = useActions([removeTodoByName, editTodoByName, changeCheckStatus])
   const modal = new f1rf1r.Modal()
@@ -19,7 +19,7 @@ export default function Item({ subject, isCompleted, endDate, id }) {
         success: {
           text: "Sil",
           func: () => {
-            remove(id)
+            remove(subject)
             notif.success("Todo başarıyla silindi")
           }
         },
@@ -51,7 +51,7 @@ export default function Item({ subject, isCompleted, endDate, id }) {
         success: {
           text: "Düzenle",
           func: () => {
-            edit({ id, data: modal.data })
+            edit({ subject, data: modal.data })
             notif.success("Todo başarıyla güncellendi")
           }
         },
@@ -66,7 +66,7 @@ export default function Item({ subject, isCompleted, endDate, id }) {
     <article className={`todos-list-item d_flex ai_center jc_space-between p-4 mb-4 ${isCompleted && "completed"}`}>
       <div className="todos-list-item-left">
         <div className={`end-date mb-4 ${dateComparison(endDate) ? "txt-error" : "txt-success"}`}>{new Date(endDate).toLocaleDateString()}</div>
-        <label className='d_flex ai_center todos-list-item-label' htmlFor={`check-todo-${subject}`} >
+        <label className='d_flex ai_center todos-list-item-label' htmlFor={`check-todo-${subject}`}>
           <input
             type="checkbox"
             name={`check-todo-${subject}`}
@@ -82,7 +82,7 @@ export default function Item({ subject, isCompleted, endDate, id }) {
         </label>
       </div>
 
-      <div className='d_flex'>
+      <div className='d_flex ml-1'>
         <RedButton text="Sil" className="mr-4" onClick={removeTodo} />
         <OrangeButton text="Düzenle" onClick={editTodo} />
       </div>

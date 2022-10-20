@@ -1,8 +1,11 @@
 import React from 'react'
 import { motion, AnimatePresence } from "framer-motion";
+import { useSelector } from 'react-redux';
 
-export default function Modal({ props, children }) {
-  if (!show) return;
+export default function Modal({ children }) {
+  const { showModal } = useSelector(state => state.news)
+
+  if (!showModal) return;
 
   return (
     <div className="modal">
