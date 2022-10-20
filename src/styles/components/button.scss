@@ -1,0 +1,7 @@
+@use "../abstracts/index.scss" as *;
+
+@each $key, $value in $button-color {
+  .#{$key} {
+    @include button($value, #d4d4d4);
+  }
+}

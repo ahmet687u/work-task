@@ -1,0 +1,94 @@
+@use "../abstracts/index.scss" as *;
+
+.todos {
+  &-form {
+    .f1 {
+      flex: 1;
+    }
+
+    .inputbox {
+      box-shadow: 0 0 3px rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+
+      input {
+        background-color: transparent;
+        color: #fff;
+        border-radius: inherit;
+      }
+
+      svg {
+        background-color: $current-pink-color;
+        color: $body-back-color;
+        border-radius: 5px;
+        width: 24px;
+        height: 24px;
+        padding: 2px;
+      }
+    }
+  }
+
+  &-list {
+    height: 700px;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &-item {
+      background-color: $todo-item-back-color;
+      border-radius: 10px;
+      transition: all 0.2s;
+      user-select: none;
+
+      &.completed {
+        opacity: 0.2;
+
+        p {
+          text-decoration: line-through;
+        }
+      }
+
+      &-left {
+        .end-date {
+          opacity: 0.8;
+          letter-spacing: 0.04rem;
+
+          font: {
+            size: 0.65rem;
+            weight: bold;
+          }
+        }
+      }
+
+      &-label {
+        cursor: pointer;
+
+        &-check {
+          transition: all 0.2s;
+          padding: 2px;
+          border: 1px solid $current-pink-color;
+          border-radius: 4px;
+
+          svg {
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.2s;
+            color: $todo-item-back-color;
+          }
+        }
+
+        input {
+          &:checked ~ #check {
+            background-color: $current-pink-color;
+
+            svg {
+              opacity: 1;
+              transform: scale(1);
+            }
+          }
+        }
+      }
+    }
+  }
+}

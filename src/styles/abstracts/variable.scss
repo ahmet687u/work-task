@@ -1,0 +1,24 @@
+$body-back-color: #17181f;
+$todo-item-back-color: #20212c;
+$current-pink-color: #fa75a0;
+
+$breakpoints: (
+  sm: 450,
+  md: 768,
+  lr: 1024
+);
+
+$text-colors: (
+  error: rgba(212, 41, 41, 0.945),
+  success: rgba(23, 199, 82, 0.856),
+  default: #d4d4d4
+);
+
+$button-color: (
+  btn-red: #e94560,
+  btn-orange: #ff5f00,
+  btn-blue: #2980b9,
+  btn-purple: #8e44ad,
+  btn-green: #16a085,
+  btn-pink: #fa75a0
+);

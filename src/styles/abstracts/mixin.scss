@@ -1,0 +1,78 @@
+@use './variable.scss' as *;
+
+@mixin responsive-max($breakpont) {
+  @media screen and (max-width: #{$breakpont}px) {
+    @content;
+  }
+}
+
+@mixin responsive-min($breakpont) {
+  @media screen and (min-width: #{$breakpont}px) {
+    @content;
+  }
+}
+
+@mixin button($back, $color, $hover: true) {
+  color: $color;
+  cursor: pointer;
+  font-size: 1rem;
+  position: relative;
+  padding: 10px 25px;
+  background-color: #d4d4d4;
+  transition: all 0.2s ease-in-out;
+  letter-spacing: 0.05rem;
+
+  span {
+    position: relative;
+  }
+
+  div {
+    position: absolute;
+    inset: 0;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      height: 6px;
+      width: 10px;
+      background-color: $body-back-color;
+      transition: all 0.2s linear;
+    }
+
+    &::before {
+      right: 10px;
+    }
+
+    &::after {
+      bottom: 0;
+      left: 10px;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    background-color: $body-back-color;
+    inset: 1px;
+  }
+
+  @if $hover == true {
+    &:hover {
+      background-color: $back;
+      color: $back;
+      box-shadow: 0 0 30px $back;
+      letter-spacing: 0.18rem;
+
+      div {
+        &::before {
+          right: 80%;
+        }
+
+        &::after {
+          left: 80%;
+        }
+      }
+    }
+  }
+}

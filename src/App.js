@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import News from "./components/news/News";
+import Todo from "./components/todo/Todo";
+import Wheather from "./components/wheather/Wheather";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="gr_container page txt-default">
+      <div className="gr_row">
+        {/* Todo section */}
+        <div className="gr-8-10-md gr-6 10 sm">
+          <Todo />
+        </div>
+
+        {/* Main section */}
+        <div className="gr-4-10-md gr-6 10 sm">
+          {/* Wheather section */}
+          <Wheather />
+
+          {/* News section */}
+          <News />
+        </div>
+      </div>
+    </main>
   );
 }
-
-export default App;

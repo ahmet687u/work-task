@@ -1,0 +1,35 @@
+@use '../abstracts/index.scss' as *;
+
+:root {
+  --page-font-size: 17px
+}
+
+:is(html, body) {
+  font-size: var(--page-font-size);
+}
+
+.page {
+  padding-top: 70px;
+}
+
+body {
+  background-color: $body-back-color;
+}
+
+.gr_container {
+  max-width: 1500px !important;
+}
+
+//--- Create text color
+@each $key, $value in $text-colors {
+  .txt-#{$key} {
+    color: $value;
+  }
+}
+
+//--- Responsive
+@include responsive-max(map-get($breakpoints, md)) {
+  :root {
+    --page-font-size: 15px
+  }
+}
