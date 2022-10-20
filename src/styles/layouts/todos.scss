@@ -91,4 +91,21 @@
       }
     }
   }
+
+  //--- Responsive
+  @include responsive-max(map-get($breakpoints, md)) {
+    &-list {
+      &-item {
+        flex-wrap: wrap;
+
+        &-left {
+          margin-bottom: 20px;
+
+          label {
+            flex: 1 1 auto;
+          }
+        }
+      }
+    }
+  }
 }

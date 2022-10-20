@@ -3,15 +3,17 @@ import { newsApi } from '../services/newsApi';
 
 const initialState = {
   data: [],
-  showModal: false
+  showModal: false,
+  currentItem: null,
+  counter: 0
 }
 
 const newsSlice = createSlice({
   name: "news",
   initialState,
   reducers: {
-    setShowModal: (state, { payload }) => {
-      state.showModal = payload
+    setNewsFeatureByName: (state, { payload }) => {
+      state[payload?.name] = payload?.value
     }
   },
   extraReducers: build => {
@@ -22,6 +24,6 @@ const newsSlice = createSlice({
   }
 });
 
-export const { setShowModal } = newsSlice.actions
+export const { setShowModal, setNewsFeatureByName } = newsSlice.actions
 
 export default newsSlice.reducer

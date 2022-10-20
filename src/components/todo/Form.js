@@ -24,8 +24,8 @@ export default function Form() {
   }, [searchData, setFeature])
 
   return (
-    <div className="d_flex ai_center todos-form">
-      <div className="d_flex ai_center inputbox mr-4 f1 pl-3">
+    <div className="gr_row ai_center todos-form">
+      <div className="d_flex ai_center inputbox mr-4 f1 pl-3 gr-9-10-md  gr-7-10-sm gr-12-10">
         <AiOutlineSearch />
         <input
           type="text"
@@ -38,6 +38,7 @@ export default function Form() {
       <SelectBox
         emptyText="Filtrele"
         defaultValue={filterValue}
+        className="gr-3-10-md gr-5-10-sm gr-12-10"
         data={["Tümü", "Tamamlananlar", "Tamamlanmayanlar"]}
         onUpdate={(value) => setFilterValue(value)}
       />

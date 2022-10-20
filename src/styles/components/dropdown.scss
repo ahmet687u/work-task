@@ -48,4 +48,11 @@
       }
     }
   }
+
+  //--- Responsive
+  @include responsive-max(map-get($breakpoints, md)) {
+    &-list {
+      width: 100%;
+    }
+  }
 }

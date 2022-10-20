@@ -1,7 +1,7 @@
-@use '../abstracts/index.scss' as *;
+@use "../abstracts/index.scss" as *;
 
 :root {
-  --page-font-size: 17px
+  --page-font-size: 17px;
 }
 
 :is(html, body) {
@@ -20,6 +20,28 @@ body {
   max-width: 1500px !important;
 }
 
+figure {
+  &.hover {
+    position: relative;
+    overflow: hidden;
+
+    img {
+      transition: all 0.2s;
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+.text {
+  font-size: 1rem;
+  line-height: 30px;
+}
+
 //--- Create text color
 @each $key, $value in $text-colors {
   .txt-#{$key} {
@@ -30,6 +52,6 @@ body {
 //--- Responsive
 @include responsive-max(map-get($breakpoints, md)) {
   :root {
-    --page-font-size: 15px
+    --page-font-size: 15px;
   }
 }

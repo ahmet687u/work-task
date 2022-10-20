@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { RiArrowDownSLine } from 'react-icons/ri'
 
-export default function SelectBox({ data, onUpdate, emptyText, defaultValue }) {
+export default function SelectBox({ data, onUpdate, emptyText, defaultValue, className, ...props }) {
   const [show, setShow] = useState(false)
   const [selected, setSelected] = useState(defaultValue)
 
@@ -12,7 +12,7 @@ export default function SelectBox({ data, onUpdate, emptyText, defaultValue }) {
   }
 
   return (
-    <div className="dropdown">
+    <div className={`dropdown ${className}`} {...props}>
       <div
         className="dropdown-button d_flex ai_center jc_space-between py-4 px-3"
         onClick={() => setShow(!show)}

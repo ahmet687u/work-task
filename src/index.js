@@ -16,7 +16,6 @@ import 'f1rf1r/dist/css/fırfır.min.css'
 const fırfır = new f1rf1r.F1rf1r()
 fırfır.init()
 
-
 fırfır.notificationSettings = {
   duration: 4000
 }

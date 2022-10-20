@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useGetNewsQuery } from '../../redux/services/newsApi'
 import Item from './Item'
-import Modal from '../Modal'
+import Modal from './Modal'
 import '../../styles/layouts/news.scss'
 
 export default function News() {
-  const [show, setShow] = useState(false)
   const { data: news, isError, isLoading } = useGetNewsQuery()
 
   if (isError) {
@@ -33,9 +32,7 @@ export default function News() {
         {news?.map(item => <Item key={item?.title} {...item} />)}
       </div>
 
-      <Modal show={show}>
-        kasj
-      </Modal>
+      <Modal />
     </section>
   )
 }
