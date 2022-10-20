@@ -1,9 +1,9 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import Item from './Item'
+import { useSelector } from 'react-redux'
 
 export default function List() {
-  const { data, searchData } = useSelector(state => state.todos)
+  const { searchData, filteredTodo } = useSelector(state => state.todos)
 
   if (searchData === "Not Found") {
     return (
@@ -15,9 +15,9 @@ export default function List() {
 
   return (
     <div className='todos-list my-4'>
-      {searchData?.length
+      {Boolean(searchData?.length)
         ? searchData?.map(item => <Item key={item.subject} {...item} />)
-        : data?.map(item => <Item key={item.subject} {...item} />)}
+        : filteredTodo?.map(item => <Item key={item.subject} {...item} />)}
     </div>
   )
 }

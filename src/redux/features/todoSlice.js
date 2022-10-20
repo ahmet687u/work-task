@@ -3,7 +3,8 @@ import { todoApi } from '../services/todoApi';
 
 const initialState = {
   data: [],
-  searchData: []
+  searchData: [],
+  filteredTodo: []
 }
 
 const todoSlice = createSlice({
@@ -12,6 +13,15 @@ const todoSlice = createSlice({
   reducers: {
     setFeatureByName: (state, { payload }) => {
       state[payload?.name] = payload?.value
+    },
+    removeTodoByName: (state, { payload }) => {
+      state.data = state.data?.filter(item => item.id !== payload)
+    },
+    editTodoByName: (state, { payload }) => {
+      state.data = state.data?.map(item => item.id === payload.id ? ({ ...item, ...payload.data }) : item)
+    },
+    changeCheckStatus: (state, { payload }) => {
+      state.data = state.data?.map(item => item.subject === payload.subject ? ({ ...item, isCompleted: payload.isCompleted }) : item)
     }
   },
   extraReducers: build => {
@@ -20,11 +30,14 @@ const todoSlice = createSlice({
      */
     build
       .addMatcher(todoApi.endpoints.getTodos.matchFulfilled, (state, { payload }) => {
-        state.data = payload
+        /**
+         * Verilerin güncelleme ve silmesini yaparken ihtiyaç duyulacağından her veriye benzersiz bir id değeri ekliyoruz
+         */
+        state.data = payload?.map((item, id) => ({ ...item, id }))
       })
   }
 });
 
-export const { setFeatureByName } = todoSlice.actions
+export const { setFeatureByName, removeTodoByName, editTodoByName, changeCheckStatus } = todoSlice.actions
 
 export default todoSlice.reducer
