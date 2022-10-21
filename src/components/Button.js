@@ -5,10 +5,7 @@ const Button = ({ text, children, className, click, type, ...props }) => {
   const TYPE = {
     red: "btn-red",
     orange: "btn-orange",
-    blue: "btn-blue",
-    purple: "btn-purple",
-    green: "btn-green",
-    pink: "btn-pink"
+    blue: "btn-blue"
   }
 
   return (
@@ -19,9 +16,6 @@ const Button = ({ text, children, className, click, type, ...props }) => {
   )
 }
 
-export const PinkButton = PartialApply(Button, { type: "pink" })
 export const RedButton = PartialApply(Button, { type: "red" })
 export const OrangeButton = PartialApply(Button, { type: "orange" })
-export const GreenButton = PartialApply(Button, { type: "green" })
-export const PurpleButton = PartialApply(Button, { type: "purple" })
 export const BlueButton = PartialApply(Button, { type: "blue" })

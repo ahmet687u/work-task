@@ -19,7 +19,7 @@ export default function List() {
     setDragData(filteredTodo)
   }, [searchData, filteredTodo])
 
-  if (searchData === "Not Found") {
+  if (!searchData?.length) {
     return (
       <div className='flex_center my-4 py-4 txt-error'>
         <h2>Aranan eleman bulunamadı</h2>

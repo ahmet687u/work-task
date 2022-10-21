@@ -30,9 +30,6 @@ const todoSlice = createSlice({
      */
     build
       .addMatcher(todoApi.endpoints.getTodos.matchFulfilled, (state, { payload }) => {
-        /**
-         * Verilerin güncelleme ve silmesini yaparken ihtiyaç duyulacağından her veriye benzersiz bir id değeri ekliyoruz
-         */
         state.data = payload
       })
   }

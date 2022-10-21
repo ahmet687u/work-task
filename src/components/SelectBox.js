@@ -12,7 +12,7 @@ export default function SelectBox({ data, onUpdate, emptyText, defaultValue, cla
   }
 
   return (
-    <div className={`dropdown ${className}`} {...props}>
+    <div className={`dropdown pos_relative ${className}`} {...props}>
       <div
         className="dropdown-button d_flex ai_center jc_space-between py-4 px-3"
         onClick={() => setShow(!show)}
@@ -20,7 +20,7 @@ export default function SelectBox({ data, onUpdate, emptyText, defaultValue, cla
         {selected || emptyText}
         <RiArrowDownSLine />
       </div>
-      <div className={`dropdown-list ${show && "active"}`}>
+      <div className={`dropdown-list pos_absolute ${show && "active"}`}>
         {data?.map((option, idx) => (
           <div
             key={idx}

@@ -1,7 +1,6 @@
 @use "../abstracts/index.scss" as *;
 
 .dropdown {
-  position: relative;
   background-color: $dropdown-color;
   border-radius: 6px;
   min-width: 200px;
@@ -14,7 +13,6 @@
   }
 
   &-list {
-    position: absolute;
     top: 140%;
     left: 50%;
     transform: translateX(-50%);

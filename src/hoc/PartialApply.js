@@ -1,5 +1,7 @@
 import React from 'react'
 
-export default (WrappedComponent, otherProps) => {
+const PartialApply = (WrappedComponent, otherProps) => {
   return ({ ...props }) => <WrappedComponent {...otherProps} {...props} />
 }
+
+export default PartialApply

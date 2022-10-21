@@ -17,6 +17,8 @@ export default function Wheather() {
     snowy
   }
 
+  const DAYS = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"]
+
   useEffect(() => {
     setCurrentData(wheathers?.find(item => new Date().toLocaleDateString() === new Date(item?.date).toLocaleDateString()));
   }, [wheathers])
@@ -38,7 +40,7 @@ export default function Wheather() {
   return (
     <section className='wheather mb-4 mx-2 p-4'>
       <header className='d_flex ai_center jc_space-between wheather-header'>
-        <h2>Bugün</h2>
+        <h2>{DAYS[new Date().getDay()]}</h2>
         <p>{new Date().toLocaleDateString()}</p>
       </header>
       <div className='my-4 d_flex ai_center jc_space-between wheather-tempeture'>

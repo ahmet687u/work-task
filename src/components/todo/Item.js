@@ -10,6 +10,10 @@ export default function Item({ subject, isCompleted, endDate }) {
   const [remove, edit, setCheck] = useActions([removeTodoByName, editTodoByName, changeCheckStatus])
   const modal = new f1rf1r.Modal()
   const notif = new f1rf1r.Notification()
+
+  /**
+   * fill input type date
+   */
   const dateConvert = () => new Date(endDate).toLocaleDateString().split(".").reverse().join("-")
 
   const removeTodo = () => {

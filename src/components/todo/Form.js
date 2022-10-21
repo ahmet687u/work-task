@@ -18,8 +18,6 @@ export default function Form() {
   }, [filterData, setFeature])
 
   useEffect(() => {
-    if (!searchData) return
-
     setFeature({ name: "searchData", value: searchData });
   }, [searchData, setFeature])
 
